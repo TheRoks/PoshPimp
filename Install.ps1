@@ -1,7 +1,7 @@
 Install-Module oh-my-posh
 Install-Module posh-git
 
-#.\Meslo\install.ps1
+.\Meslo\install.ps1
 
 Import-Module oh-my-posh
 Import-Module posh-git
