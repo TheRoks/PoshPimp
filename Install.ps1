@@ -1,23 +1,17 @@
 Install-Module oh-my-posh
 Install-Module posh-git
 
-Invoke-WebRequest -Uri 'https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip' -OutFile .\Meslo.zip
-
-Expand-Archive .\Meslo.zip
-
-.\Meslo\fonts-master\install.ps1
-
-Remove-Item .\meslo.zip
-Remove-Item .\meslo -Recurse
+#.\Meslo\install.ps1
 
 Import-Module oh-my-posh
 Import-Module posh-git
 
-#if (!(Test-Path -Path $PROFILE )) { New-Item -Type File -Path $PROFILE -Force }
-#notepad $PROFILE
+Set-Location $PSScriptRoot\ColorTool
 
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/waf/dracula-cmd/master/dist/ColorTool.zip' -OutFile .\ColorTool.zip
+.\install.cmd
 
-Expand-Archive .\ColorTool.zip
+Write-Host "Finished! Paste the readme in next notepade. Press any key to continue..."
+$Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 
-.\ColorTool\instal.cmd
+if (!(Test-Path -Path $PROFILE )) { New-Item -Type File -Path $PROFILE -Force }
+notepad $PROFILE
